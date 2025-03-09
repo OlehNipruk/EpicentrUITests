@@ -1,0 +1,20 @@
+<suite name="EpicentrUITests Suite">
+    <test name="HomePage Tests">
+        <classes>
+            <class name="tests.HomePageTest"/>
+        </classes>
+    </test>
+
+    <test name="ProductPage Tests">
+        <classes>
+            <class name="tests.ProductPageTest"/>
+        </classes>
+    </test>
+
+    <test name="CartPage Tests">
+        <classes>
+            <class name="tests.CartPageTest"/>
+        </classes>
+    </test>
+</suite>
+
