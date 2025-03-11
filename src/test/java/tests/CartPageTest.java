@@ -1,9 +1,11 @@
 package tests;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CartPage;
 import pages.HomePage;
 import pages.ProductPage;
+
 public class CartPageTest extends BaseTest {
     @Test
     public void testAddToCart() {

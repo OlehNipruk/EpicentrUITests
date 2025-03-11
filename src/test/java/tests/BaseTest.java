@@ -19,6 +19,7 @@ public class BaseTest {
         driver.get("https://epicentrk.ua/");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
+
     @AfterMethod
     public void tearDown() {
         if (driver != null) {
