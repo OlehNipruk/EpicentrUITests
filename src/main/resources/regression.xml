@@ -1,0 +1,9 @@
+<suite name="RegressionTests">
+    <test name="AllTests">
+        <classes>
+            <class name="tests.CartPageTest"/>
+            <class name="tests.HomePageTest"/>
+            <class name="tests.ProductPageTest"/>
+        </classes>
+    </test>
+</suite>
