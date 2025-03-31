@@ -1,6 +1,6 @@
 package listeners;
 
-import driver.DriverFactory;
+import driver.SingletonDriver;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.ITestListener;
@@ -13,7 +13,7 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-        WebDriver driver = DriverFactory.getDriver();
+        WebDriver driver = SingletonDriver.getDriver();
         String screenshotPath = ScreenshotUtil.takeScreenshot(driver, result.getName());
         if (screenshotPath != null) {
             logger.error("Test failed: {}. Screenshot: {}", result.getName(), screenshotPath);
