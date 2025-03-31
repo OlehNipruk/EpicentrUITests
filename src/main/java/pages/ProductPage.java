@@ -1,5 +1,6 @@
 package pages;
 
+import driver.LoggingWebElementDecorator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -12,10 +13,12 @@ public class ProductPage extends BasePage {
     }
 
     public void addProductToCart() {
-        clickElement(addToCartButton);
+        LoggingWebElementDecorator addToCartBtn = new LoggingWebElementDecorator(driver.findElement(addToCartButton));
+        addToCartBtn.click();
     }
 
     public String getProductName() {
-        return getText(productName);
+        LoggingWebElementDecorator productElement = new LoggingWebElementDecorator(driver.findElement(productName));
+        return productElement.getText();
     }
 }

@@ -1,5 +1,6 @@
 package pages;
 
+import driver.LoggingWebElementDecorator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -12,7 +13,9 @@ public class HomePage extends BasePage {
     }
 
     public void searchForProduct(String productName) {
-        sendKeys(searchInput, productName);
-        clickElement(searchButton);
+        LoggingWebElementDecorator searchInputElement = new LoggingWebElementDecorator(driver.findElement(searchInput));
+        LoggingWebElementDecorator searchButtonElement = new LoggingWebElementDecorator(driver.findElement(searchButton));
+        searchInputElement.sendKeys(productName);
+        searchButtonElement.click();
     }
 }

@@ -1,11 +1,11 @@
 package tests;
 
+import driver.SingletonDriver;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import driver.DriverFactory;
 import utils.ConfigReader;
 
 import java.time.Duration;
@@ -21,7 +21,7 @@ public class BaseTest {
     public void setUp() {
         implicitWait = ConfigReader.getIntProperty("implicitWait");
         explicitWait = ConfigReader.getIntProperty("explicitWait");
-        driver = DriverFactory.getDriver();
+        driver = SingletonDriver.getDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWait));
         baseUrl = ConfigReader.getProperty("baseUrl");
         driver.get(baseUrl);
@@ -30,6 +30,6 @@ public class BaseTest {
 
     @AfterMethod
     public void tearDown() {
-        DriverFactory.closeDriver();
+        SingletonDriver.closeDriver();
     }
 }

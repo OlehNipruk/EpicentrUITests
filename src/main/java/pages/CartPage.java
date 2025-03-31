@@ -1,5 +1,6 @@
 package pages;
 
+import driver.LoggingWebElementDecorator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,11 +16,16 @@ public class CartPage extends BasePage {
     }
 
     public String getProductNameInCart() {
-        return getText(productNameInCart);
+        LoggingWebElementDecorator productElement = new LoggingWebElementDecorator(driver.findElement(productNameInCart));
+        String productName = productElement.getText();
+        return productName;
     }
 
     public int getCartItemCount() {
         List<WebElement> cartItems = driver.findElements(cartItemsLocator);
-        return cartItems.size();
+        LoggingWebElementDecorator cartItemElement = new LoggingWebElementDecorator(cartItems.get(0));
+        int itemCount = cartItems.size();
+        System.out.println("Cart item count: " + itemCount);
+        return itemCount;
     }
 }
