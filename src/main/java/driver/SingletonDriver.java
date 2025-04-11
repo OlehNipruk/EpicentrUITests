@@ -14,6 +14,7 @@ public class SingletonDriver {
 
     public static WebDriver getDriver() {
         if (driver == null) {
+            logger.info("Initializing WebDriver instance");
             DriverFactoryInterface factory = createDriverFactory();
             driver = factory.createDriver();
             driver.manage().window().maximize();
