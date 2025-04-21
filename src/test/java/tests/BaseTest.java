@@ -42,4 +42,9 @@ public class BaseTest {
     public void tearDown() {
         SingletonDriver.closeDriver();
     }
+
+    public static WebDriver getDriver() {
+        return SingletonDriver.getDriver();
+    }
+
 }
